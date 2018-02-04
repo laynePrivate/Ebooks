@@ -1,6 +1,7 @@
 <template>
     <div class="hello">
         1232323
+        <div style="width:2rem;height: 2rem;">html5</div>
     </div>
 </template>
 
