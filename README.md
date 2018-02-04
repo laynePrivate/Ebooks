@@ -1,6 +1,6 @@
 # element_books
 
-> A Vue.js project
+> A Vue.js project for element books
 
 ## Build Setup
 
