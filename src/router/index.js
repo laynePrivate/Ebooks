@@ -10,32 +10,42 @@ var routes = [
     path: '/',
     name: 'index',
     redirect: to=>{
-      return '/index'
+      return '/sys'
     }
   },
   {
-    path: '/index',
+    path: '/login',
+    name: 'login',
+    component: route.login
+  },
+  {
+    path: '/sys',
     name: 'index',
-    component: route.index
+    component: route.sys,
+    children: [  //这里配置二级路由
+      {
+        path: '',
+        redirect: to => {
+          return 'index'
+        }
+      },
+      {
+        path: 'index',
+        name: 'homepage',
+        component: route.index
+      },
+      {
+        path: 'email',
+        name: 'email',
+        component: route.email
+      },
+      {
+        path: 'setting',
+        name: 'setting',
+        component: route.setting
+      }
+    ]
   },
-  //账号
-  {
-    path: '/user',
-    name: 'user',
-    component: route.user
-  },
-  //邮件
-  {
-    path: '/email',
-    name: 'email',
-    component: route.email
-  },
-  //设置
-  {
-    path: '/setting',
-    name: 'setting',
-    component: route.setting
-  }
 ]
 export default new Router({
   mode: 'history',

@@ -1,59 +1,61 @@
 <template>
-    <div class="index-pannel">
-        <div class="header">
-            <div class="header-container">
-                <div class="fl iconfont" @click="showPannel">&#xe606;</div>
-                <div class="fl header-title">追书神器</div>
-                <div class="fr iconfont" v-show="!leftPannelFlag">&#xe6ea;</div>
-            </div>
+    <div style="height: 100%;">
+        <div class="left-pannel" v-if="leftPannelFlag">
+            <router-link to="/login" class="iconfont left-pannel-item">&#xe65b;</router-link>
+            <router-link to="index" class="iconfont left-pannel-item" @click.native="closePannel">&#xe60f;</router-link>
+            <router-link to="email" class="iconfont left-pannel-item" @click.native="closePannel">&#xe61a;</router-link>
+            <router-link to="setting" class="iconfont left-pannel-item" @click.native="closePannel">&#xe627;</router-link>
+        </div>
+        <div :class="{'main-pannel': leftPannelFlag}">
+            <keep-alive>
+                <router-view></router-view>
+            </keep-alive>
         </div>
     </div>
 </template>
 
 <script>
-import { mapActions,mapState } from 'vuex'
+import { mapActions, mapState } from "vuex";
 export default {
-    data(){
-        return {
-
-        }
-    },
-    computed: {
-        ...mapState({
-            leftPannelFlag: state => state.leftPannelFlag
-        })
-    },
-    methods: {
-        //打开面板
-        showPannel() {
-            if(this.leftPannelFlag) {
-                this.$store.commit('changePannel', false);
-            } else {
-                this.$store.commit('changePannel', true);
-            }
-        }
-    },
-    components: {
-        
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapState({
+      leftPannelFlag: state => state.leftPannelFlag
+    })
+  },
+  methods: {
+    closePannel() {
+      this.$store.commit("changePannel", false);
     }
+  }
 };
 </script>
 
-<style scoped>
-    .header{
-        width: 100%;
-        height: 1rem;
-        line-height: 1rem;
-        background: red;
-    }
-    .header-container{
-        width: 90%;
-        margin: 0 auto;
-    }
-    .header-title{
-        width: 84%;
-        text-align: center;
-        color: #fff;
-    }
+<style>
+.left-pannel {
+  width: 16%;
+  height: 100%;
+  background: #666;
+  float: left;
+}
+.main-pannel {
+  width: 84%;
+  float: left;
+}
+.left-pannel-item {
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  display: block;
+  border-bottom: 1px solid #000;
+}
+.left-pannel-item:first-child {
+  border-top: 1px solid #000;
+  margin-top: 0.8rem;
+}
+.router-link-active {
+  border-left: 3px solid red;
+}
 </style>
-
