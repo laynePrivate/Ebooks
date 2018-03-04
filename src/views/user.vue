@@ -1,40 +1,29 @@
 <template>
-  <div class="user">
-    <img src="../assets/img/biglog.jpg" alt="log">
-    <div class="user-login">
-		<p>
-			上次登陆方式为： <span>QQ登陆</span>
-		</p>
-		<div class="user-lsit">
-			<h4>选择登陆方式</h4>
-			<ul class="">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-			<div class="user-close">
-				关闭
+  	<div class="user">
+    	<img src="../assets/img/biglog.jpg" alt="log">
+    	<div class="user-login">
+			<p>
+				上次登陆方式为： <span>QQ登陆</span>
+			</p>
+			<div class="user-lsit">
+				<h4>选择登陆方式</h4>
+				<ul class="">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div class="user-close">
+					关闭
+				</div>
 			</div>
-		</div>
+    	</div>
     </div>
-  </div>
 </template>
 
 <script>
+  export default{
 
- export default{
-	dara () {
-		return {
-
-		}
-	},
-	computed: {
-		
-	},
-	methods: {
-		
-	}
   }
 </script>
 
@@ -133,4 +122,4 @@
 		vertical-align: middle;
 		margin-top: -.05rem;
 	}
-</style> 
+</style>
